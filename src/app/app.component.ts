@@ -11,19 +11,22 @@ export class AppComponent {
 //  i know you make think this app is too basic, but
   constructor(){}
 
-   public items: string[] = [];
+   public items: {newTask:string, status:boolean}[] = [];
 
    newTask:string | any = '';
 
    public addToList() {
-           if (this.newTask == '') {
+         if (this.newTask == '') {
+         this.newTask = '';
            }
            else {
-               this.items.push(this.newTask);
+               this.items.push({newTask:this.newTask, status:false});
                this.newTask = '';
            }
        }
-
+       completTask(index:any){
+           this.items[index].status = true ;
+       }
 
        public deleteTask(index:any) {
            this.items.splice(index, 1);
