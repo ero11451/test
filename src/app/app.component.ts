@@ -28,6 +28,10 @@ export class AppComponent {
            this.items[index].status = true ;
        }
 
+       filter(status:boolean){
+          this.items = this.items.filter(item => item.status == status)
+       }
+
        public deleteTask(index:any) {
            this.items.splice(index, 1);
        }

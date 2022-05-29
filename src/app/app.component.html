@@ -7,7 +7,11 @@
        <button (click)="addToList()" [disabled]="newTask < 1" class="btn w-100 btn-block mt-2  btn-primary"> ADD TASK </button>
   </div>
 
-
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" (click)="filter(false)"  class="btn btn-secondary">filter by uncompleted</button>
+    <button type="button" (click)="filter(true)" class="btn btn-secondary ml-2 mr-2">Filter by completed</button>
+    <button type="button" (click)="items = []" class="btn btn-secondary">clear</button>
+  </div>
   <ul class="list-group mt-2">
     <li  class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let x of items; let index = index;">
       <span [ngClass]="{'completed': x.status}"> {{x.newTask}} </span>
